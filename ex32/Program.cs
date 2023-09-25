@@ -19,21 +19,15 @@ namespace ex32
                 Console.Write("Введите значение оценки: ");
                 string enteredMeaning = Console.ReadLine().ToUpper();
 
-                for (int i = 0; i < marksMeanings.Count; i++)
+                if (marksMeanings.ContainsKey(enteredMeaning))
                 {
-                    if (marksMeanings.ContainsKey(enteredMeaning))
-                    {
-                        Console.WriteLine($"{marksMeanings[enteredMeaning]} - {enteredMeaning}");
-                        break;
-                    }
-                    else
-                    {
-                        Console.WriteLine("Такого значение нет...");
-                        break;
-                    }
+                    Console.WriteLine($"{marksMeanings[enteredMeaning]} - {enteredMeaning}");
+                }
+                else
+                {
+                    Console.WriteLine("Такого значение нет...");
                 }
             }
-
         }
 
         static void AddValue(Dictionary<string, int> marksMeanings)
