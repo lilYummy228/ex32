@@ -37,7 +37,6 @@ namespace ex32
                         Console.WriteLine("Такого значение нет...");
                     }
                 }
-
             }
         }
 
