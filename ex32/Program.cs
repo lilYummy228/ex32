@@ -10,23 +10,34 @@ namespace ex32
     {
         static void Main(string[] args)
         {
+            const string CommandExit = "EXIT";
+
             Dictionary<string, int> marksMeanings = new Dictionary<string, int>();
+            bool isOpen = true;
 
             AddValue(marksMeanings);
 
-            while (true)
+            while (isOpen)
             {
-                Console.Write("Введите значение оценки: ");
+                Console.Write($"Введите значение оценки или {CommandExit}: ");
                 string enteredMeaning = Console.ReadLine().ToUpper();
 
-                if (marksMeanings.ContainsKey(enteredMeaning))
+                if (enteredMeaning == CommandExit)
                 {
-                    Console.WriteLine($"{marksMeanings[enteredMeaning]} - {enteredMeaning}");
+                    isOpen = false;
                 }
                 else
                 {
-                    Console.WriteLine("Такого значение нет...");
+                    if (marksMeanings.ContainsKey(enteredMeaning))
+                    {
+                        Console.WriteLine($"{marksMeanings[enteredMeaning]} - {enteredMeaning}");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Такого значение нет...");
+                    }
                 }
+
             }
         }
 
