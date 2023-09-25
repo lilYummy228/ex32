@@ -10,7 +10,44 @@ namespace ex32
     {
         static void Main(string[] args)
         {
+            Dictionary<string, int> marksMeanings = new Dictionary<string, int>();
 
+            AddValue(marksMeanings);
+
+            while (true)
+            {
+                Console.Write("Введите значение оценки: ");
+                string enteredMeaning = Console.ReadLine().ToUpper();
+
+                for (int i = 0; i < marksMeanings.Count; i++)
+                {
+                    if (marksMeanings.ContainsKey(enteredMeaning))
+                    {
+                        Console.WriteLine($"{marksMeanings[enteredMeaning]} - {enteredMeaning}");
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Такого значение нет...");
+                        break;
+                    }
+                }
+            }
+
+        }
+
+        static void AddValue(Dictionary<string, int> marksMeanings)
+        {
+            marksMeanings.Add("ПРЕВОСХОДНО", 10);
+            marksMeanings.Add("ОТЛИЧНО", 9);
+            marksMeanings.Add("ПОЧТИ ОТЛИЧНО", 8);
+            marksMeanings.Add("ОЧЕНЬ ХОРОШО", 7);
+            marksMeanings.Add("ХОРОШО", 6);
+            marksMeanings.Add("ПОЧТИ ХОРОШО", 5);
+            marksMeanings.Add("ВЕСЬМА УДОВЛЕТВОРИТЕЛЬНО", 4);
+            marksMeanings.Add("УДОВЛЕТВОРИТЕЛЬНО", 3);
+            marksMeanings.Add("ПОЧТИ УДОВЛЕТВОРИТЕЛЬНО", 2);
+            marksMeanings.Add("НЕУДОВЛЕТВОРИТЕЛЬНО", 1);
         }
     }
 }
